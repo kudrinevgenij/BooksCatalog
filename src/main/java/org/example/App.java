@@ -1,13 +1,21 @@
 package org.example;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) throws IOException {
+        List<Book> books = new ArrayList<>();
+
+        BufferedReader reader = new BufferedReader(new FileReader("books"));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            String[] paramLine = line.split(",");
+            books.add(new Book(Integer.parseInt(paramLine[0].trim()), paramLine[1].trim(), paramLine [2].trim(), Integer.parseInt(paramLine[3].trim())));
+        }
+
+        ListHandler handler = new ListHandler(books);
     }
 }
