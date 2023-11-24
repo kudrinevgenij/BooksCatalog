@@ -7,23 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ListHandler {
-    public ListHandler(List<Book> list) throws IOException {
-        listHandle(list);
+    public ListHandler(List<Book> list, int action) throws IOException {
+        listHandle(list, action);
     }
 
-    public void listHandle(List<Book> list) throws IOException {
-        System.out.println("Возможные действия:");
-        System.out.println("1 - отобразить весь список");
-        System.out.println("2 - добавить книгу");
-        System.out.println("3 - удалить книгу");
-        System.out.println("4 - выполнить поиск по названию");
-        System.out.println("5 - выход");
-        System.out.print("Введите число:");
-
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-        System.out.println("");
-        switch (choice) {
+    public void listHandle(List<Book> list, int action) throws IOException {
+        switch (action) {
             case 1: printAll(list);
                     break;
             case 2: bookAdd(list);
@@ -36,7 +25,6 @@ public class ListHandler {
                     break;
 
         }
-        sc.close();
     }
 
     public void printAll(List<Book> list) {

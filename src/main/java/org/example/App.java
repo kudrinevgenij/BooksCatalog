@@ -15,7 +15,9 @@ public class App
             String[] paramLine = line.split(",");
             books.add(new Book(Integer.parseInt(paramLine[0].trim()), paramLine[1].trim(), paramLine [2].trim(), Integer.parseInt(paramLine[3].trim())));
         }
+        Menu menu = new Menu();
+        menu.showMenu();
 
-        ListHandler handler = new ListHandler(books);
+        ListHandler handler = new ListHandler(books, menu.choice);
     }
 }
